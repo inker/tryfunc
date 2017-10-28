@@ -2,19 +2,9 @@
 
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url]
 
-`tryCall`: try calling function until it runs without throwing. Returns the value returned by the function.
+`tryCall`: try invoking the function until it runs without throwing. Returns the value returned by the function.
 
-`tryUntil`: try calling function until the returned value satisfies the provided validating function.   try {
-    tryCall(throwingFunc, {
-      interval: 100,
-      numAttempts: 10,
-      onAttempt: (success) => {
-        console.log(`attempt ${sucess ? 'was successful' : 'failed'}`)
-      },
-    })
-  } catch (err) {
-    console.error('function timed out')
-  }
+`tryUntil`: try invoking the function until the returned value satisfies the provided validating function. Returns the value returned by the function.
 
 ## Installation
 ```
