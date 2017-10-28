@@ -1,0 +1,33 @@
+{
+  "name": "tryfunc",
+  "version": "1.0.0",
+  "description": "promisified setTimeout",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf lib && tsc",
+    "build-publish": "sh build/publish.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inker/tryfunc"
+  },
+  "keywords": [
+    "try",
+    "catch",
+    "function",
+    "attempt",
+    "repeat",
+    "until"
+  ],
+  "author": "Anton Veselyev",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^2.5.3"
+  },
+  "dependencies": {
+    "delay.js": ">=1.0.2",
+    "tslib": ">=1.8.0"
+  }
+}

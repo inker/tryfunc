@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "sourceMap": true,
+        // "watch": true,
+        "pretty": true,
+        "lib": [ "es7" ],
+        "declaration": true,
+        "alwaysStrict": true,
+        "strictNullChecks": true,
+        "noEmitHelpers": true,
+        "importHelpers": true,
+        "outDir": "lib"
+    },
+    "exclude": [ "node_modules", "test" ]
+}
