@@ -3,7 +3,7 @@ import delay from 'delay.js'
 import Options from './Options'
 
 export default async <ReturnValueType>(
-  func: () => ReturnValueType,
+  func: (iteration: number) => ReturnValueType,
   validate: (val: ReturnValueType) => boolean,
   {
     numAttempts,
@@ -15,16 +15,16 @@ export default async <ReturnValueType>(
     throw new Error('the interval should be a positive finite integer')
   }
   for (let i = 0; i < numAttempts; ++i) {
-    const val = func()
+    const val = func(i)
     if (validate(val)) {
       if (onAttempt) {
-        onAttempt(true)
+        onAttempt(i, true)
       }
       return val
     }
     const delayPromise = delay(interval)
     if (onAttempt) {
-      onAttempt(false)
+      onAttempt(i, false)
     }
     await delayPromise
   }

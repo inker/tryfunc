@@ -6,6 +6,14 @@
 
 `tryUntil`: try invoking the function until the returned value satisfies the provided validating function. Returns the value returned by the function.
 
+Arguments:
+* `func`: the function to invoke with the `iteration` as a parameter
+* (only in `tryUntil`) `validate`: the validating function. Stops executing once the validator returns `true`.
+* `Options` object:
+  * `numAttempts`: the number of iterations
+  * `interval`: the interval between each attempt
+  * `onAttempt` (optional):  the function to invoke after each attempt
+
 ## Installation
 ```
 npm install --save tryfunc
@@ -16,7 +24,7 @@ Basic usage:
 ```javascript
 import { tryCall, tryUntil } from 'tryfunc'
 
-function throwingFunction {
+function throwingFunction() {
   // ...
 }
 
@@ -27,8 +35,8 @@ async function foo() {
     const val = tryCall(throwingFunc, {
       interval: 100,
       numAttempts: 10,
-      onAttempt: (success) => {
-        console.log(`attempt ${sucess ? 'was successful' : 'failed'}`)
+      onAttempt: (i, success) => {
+        console.log(`attempt ${i} ${success ? 'was successful' : 'failed'}`)
       },
     })
     console.log('val', val)
@@ -44,8 +52,8 @@ async function foo() {
       {
         interval: 100,
         numAttempts: 10,
-        onAttempt: (success) => {
-          console.log(`attempt ${sucess ? 'was successful' : 'failed'}`)
+        onAttempt: (i, success) => {
+          console.log(`attempt ${i} ${success ? 'was successful' : 'failed'}`)
         },
       },
     )

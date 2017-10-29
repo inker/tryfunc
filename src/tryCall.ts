@@ -3,7 +3,7 @@ import delay from 'delay.js'
 import Options from './Options'
 
 export default async <ReturnValueType>(
-  func: () => ReturnValueType,
+  func: (iteration: number) => ReturnValueType,
   {
     interval,
     numAttempts,
@@ -15,15 +15,15 @@ export default async <ReturnValueType>(
   }
   for (let i = 0; i < numAttempts; ++i) {
     try {
-      const val = func()
+      const val = func(i)
       if (onAttempt) {
-        onAttempt(true)
+        onAttempt(i, true)
       }
       return val
     } catch (e) {
       const delayPromise = delay(interval)
       if (onAttempt) {
-        onAttempt(false)
+        onAttempt(i, false)
       }
       await delayPromise
     }
