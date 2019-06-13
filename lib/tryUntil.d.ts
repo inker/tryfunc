@@ -1,3 +1,6 @@
 import Options from './Options';
-declare const _default: <ReturnValueType>(func: (iteration: number) => ReturnValueType, validate: (val: ReturnValueType) => boolean, {numAttempts, interval, onAttempt}: Options) => Promise<ReturnValueType>;
+interface TryUntilOptions<ReturnValueType> extends Options {
+    onAttempt?: (result: ReturnValueType, iteration: number, success: boolean) => void;
+}
+declare const _default: <ReturnValueType>(func: (iteration: number) => ReturnValueType, validate: (val: ReturnValueType) => boolean, { numAttempts, interval, onAttempt, }: TryUntilOptions<ReturnValueType>) => Promise<ReturnValueType>;
 export default _default;

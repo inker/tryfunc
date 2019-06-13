@@ -2,6 +2,10 @@ import delay from 'delay.js'
 
 import Options from './Options'
 
+interface TryUntilOptions<ReturnValueType> extends Options {
+  onAttempt?: (result: ReturnValueType, iteration: number, success: boolean) => void,
+}
+
 export default async <ReturnValueType>(
   func: (iteration: number) => ReturnValueType,
   validate: (val: ReturnValueType) => boolean,
@@ -9,7 +13,7 @@ export default async <ReturnValueType>(
     numAttempts,
     interval,
     onAttempt,
-  }: Options,
+  }: TryUntilOptions<ReturnValueType>,
 ) => {
   if (!Number.isFinite(interval) || interval < 0) {
     throw new Error('the interval should be a positive finite integer')
@@ -18,13 +22,13 @@ export default async <ReturnValueType>(
     const val = func(i)
     if (validate(val)) {
       if (onAttempt) {
-        onAttempt(i, true)
+        onAttempt(val, i, true)
       }
       return val
     }
     const delayPromise = delay(interval)
     if (onAttempt) {
-      onAttempt(i, false)
+      onAttempt(val, i, false)
     }
     await delayPromise
   }

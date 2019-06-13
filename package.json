@@ -1,6 +1,6 @@
 {
   "name": "tryfunc",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Calling throwing or failing functions",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -24,7 +24,7 @@
   "author": "Anton Veselyev",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^2.5.3"
+    "typescript": "^3.5.1"
   },
   "dependencies": {
     "delay.js": ">=1.0.2",

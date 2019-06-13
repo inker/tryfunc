@@ -32,10 +32,13 @@ async function foo() {
   
   // try calling function
   try {
-    const val = tryCall(throwingFunc, {
+    const val = await tryCall(throwingFunc, {
       interval: 100,
       numAttempts: 10,
-      onAttempt: (i, success) => {
+      onAttempt: (err, i, success) => {
+        if (err) {
+          console.error(err)
+        }
         console.log(`attempt ${i} ${success ? 'was successful' : 'failed'}`)
       },
     })
@@ -46,13 +49,14 @@ async function foo() {
 
   // repeat until
   try {
-    const val = tryUntil(
+    const val = await tryUntil(
       () => Math.random(),
       (val) => val < 0.1,
       {
         interval: 100,
         numAttempts: 10,
-        onAttempt: (i, success) => {
+        onAttempt: (result, i, success) => {
+          console.log('received', result)
           console.log(`attempt ${i} ${success ? 'was successful' : 'failed'}`)
         },
       },
