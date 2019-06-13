@@ -19,7 +19,7 @@ export default async <ReturnValueType>(
   }
   for (let i = 0; i < numAttempts; ++i) {
     try {
-      const val = func(i)
+      const val = await func(i)
       if (onAttempt) {
         onAttempt(null, i, true)
       }

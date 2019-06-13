@@ -19,7 +19,7 @@ export default async <ReturnValueType>(
     throw new Error('the interval should be a positive finite integer')
   }
   for (let i = 0; i < numAttempts; ++i) {
-    const val = func(i)
+    const val = await func(i)
     if (validate(val)) {
       if (onAttempt) {
         onAttempt(val, i, true)
