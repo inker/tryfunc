@@ -2,12 +2,12 @@
   "name": "tryfunc",
   "version": "3.0.1",
   "description": "Calling throwing or failing functions",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf lib && tsc",
-    "build-publish": "sh build/publish.sh"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "build": "rm -rf dist && tsc",
+    "release": "np"
   },
   "repository": {
     "type": "git",
@@ -24,10 +24,11 @@
   "author": "Anton Veselyev",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^3.5.1"
+    "np": "^5.1.0",
+    "typescript": "^3.6.3"
   },
   "dependencies": {
-    "delay.js": ">=1.0.2",
+    "delay.js": "^2.0.0",
     "tslib": ">=1.8.0"
   }
 }

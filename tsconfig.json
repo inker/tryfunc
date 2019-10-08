@@ -1,17 +1,29 @@
 {
     "compilerOptions": {
-        "target": "es6",
-        "module": "commonjs",
-        "sourceMap": true,
-        // "watch": true,
-        "pretty": true,
-        "lib": [ "es7" ],
-        "declaration": true,
-        "alwaysStrict": true,
-        "strictNullChecks": true,
-        "noEmitHelpers": true,
-        "importHelpers": true,
-        "outDir": "lib"
+      "target": "es2017",
+      "module": "commonjs",
+      "sourceMap": true,
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "pretty": true,
+      "declaration": true,
+      "alwaysStrict": true,
+      // "allowSyntheticDefaultImports": true,
+      "strictNullChecks": true,
+      "noImplicitThis": true,
+      "noImplicitAny": true,
+      "downlevelIteration": true,
+      "lib": [
+        "esnext"
+      ],
+      "outDir": "dist"
     },
-    "exclude": [ "node_modules", "test" ]
-}
+    "include": [
+      "src/**/*"
+    ],
+    "exclude": [
+      "node_modules",
+      "text"
+    ]
+  }
+  
