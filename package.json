@@ -24,11 +24,11 @@
   "author": "Anton Veselyev",
   "license": "ISC",
   "devDependencies": {
-    "np": "^5.1.0",
-    "typescript": "^3.6.3"
+    "np": "^7.5.0",
+    "typescript": "^4.3.5"
   },
   "dependencies": {
     "delay.js": "^2.0.0",
-    "tslib": ">=1.8.0"
+    "tslib": "^2.3.0"
   }
 }
